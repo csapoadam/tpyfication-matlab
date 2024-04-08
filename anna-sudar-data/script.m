@@ -7,7 +7,7 @@ DEP_VAR_NAME = 'web_within_space'; %'pdf_within_space'; % or video, image, ppt, 
 
 GRID_FROM_TO_STEPS = [0, 10, 1];
 OUT_TABLE_COLUMNS = [INPUT_TABLE_COLS DEP_VAR_NAME];
-OUTPUT_FILE = 'generated_web_to_web2.csv'; %'generated_pdf_to_pdf.csv';
+OUTPUT_FILE = 'generated_web_to_web.csv'; %'generated_pdf_to_pdf.csv';
 
 function grid = create_grid (inputs_froms_tos_steps, input_cols)
     %% inputs_froms_tos_steps should either have format:
