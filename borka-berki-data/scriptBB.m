@@ -15,11 +15,9 @@ disp('Fitting model...')
 model = fitrauto(table, DEP_VAR_NAME);
 
 %%%%%%%%% ezt a reszt at kellhet meg irni...
-cart_velocities = [-3.14 : 0.1 : 3.14];
-pendulum_angles = [min(table.pendulum_angle) : 0.1 : max(table.pendulum_angle)];
-pendulum_angvels = [-3.14 : 0.1 : 3.14 ];
-[grid_1, grid_2, grid_3] = ndgrid(cart_velocities, pendulum_angles, pendulum_angvels);
-full_grid = [grid_1(:), grid_2(:), grid_3(:)];
+navigation_scores = [0 : 0.5 : 10];
+grid_1 = ndgrid(navigation_scores);
+full_grid = [grid_1(:)];
 %%%%%%%%%
 
 full_predictions = predict(model, full_grid);
