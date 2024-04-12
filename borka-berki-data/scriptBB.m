@@ -1,8 +1,8 @@
 
 
-INPUT_FILE = 'data_navi_mxwtime.csv';
-DEP_VAR_NAME = 'mxwtime';
-OUT_TABLE_COLUMNS = {'navigationscore','mxwtime'};
+INPUT_FILE = 'data_navi_mxwtime_spPres.csv';
+DEP_VAR_NAME = 'spatialPresence';
+OUT_TABLE_COLUMNS = {'navigationscore','mxwtime','spatialPresence'};
 OUTPUT_FILE = 'output.csv';
 
 table = readtable(INPUT_FILE);
@@ -16,8 +16,9 @@ model = fitrauto(table, DEP_VAR_NAME);
 
 %%%%%%%%% ezt a reszt at kellhet meg irni...
 navigation_scores = [0 : 0.5 : 10];
-grid_1 = ndgrid(navigation_scores);
-full_grid = [grid_1(:)];
+VRtime = [1,2];
+[grid_1, grid_2] = ndgrid(navigation_scores, VRtime);
+full_grid = [grid_1(:), grid_2(:)];
 %%%%%%%%%
 
 full_predictions = predict(model, full_grid);
